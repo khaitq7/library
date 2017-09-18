@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ccddf7"
+    tools:context="com.mobgame.demomobcountdowntimer.MainActivity">
+
+    <com.mobgame.mobcountdowntimer.MobCountdownTimer
+        android:layout_width="20dp"
+        android:layout_height="100dp"
+        android:text="12h:30m:20s"/>
+    <com.mobgame.mobcountdowntimer.MobCountdownTimer
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00h:00m"
+        android:textSize="20dp"
+        android:padding="3dp"
+        android:id="@+id/mobCountdownTimer"
+        android:background="@drawable/background_timer_countdown"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.182" />
+
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:layout_marginLeft="85dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="85dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/btnSetTime"
+        app:layout_constraintVertical_bias="0.171"
+        android:layout_marginStart="85dp" />
+
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="85dp"
+        android:layout_marginRight="84dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/btnSetTime"
+        app:layout_constraintVertical_bias="0.171"
+        android:layout_marginEnd="84dp" />
+
+    <Button
+        android:id="@+id/btnSetTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set time"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/edtTime"
+        android:layout_width="176dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:text="90000"
+        android:textAlignment="center"
+        android:inputType="numberDecimal"
+        android:hint="time in milliseconds"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/mobCountdownTimer"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <Button
+        android:id="@+id/btnRotate90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vertical"
+        app:layout_constraintTop_toTopOf="@+id/btnRotate0"
+        app:layout_constraintLeft_toRightOf="@+id/btnRotate0"
+        android:layout_marginLeft="3dp"
+        android:layout_marginStart="3dp" />
+
+    <Button
+        android:id="@+id/btnRotate270"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vertical Revert"
+        app:layout_constraintTop_toTopOf="@+id/btnRotate90"
+        app:layout_constraintLeft_toRightOf="@+id/btnRotate90" />
+
+    <Button
+        android:id="@+id/btnRotate0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Horizontal"
+        android:layout_marginTop="29dp"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="16dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:textAlignment="center"
+        android:entries="@array/time_format"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/edtTime"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <ToggleButton
+        android:id="@+id/tgBlink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blink"
+        app:layout_constraintLeft_toRightOf="@+id/edtTime"
+        android:layout_marginLeft="-1dp"
+        app:layout_constraintTop_toTopOf="@+id/edtTime"
+        android:layout_marginTop="-7dp" />
+
+</android.support.constraint.ConstraintLayout>

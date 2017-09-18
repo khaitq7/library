@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MobCountdownTimer</string>
+
+    <string-array name="time_format">
+        <item>FORMAT_AUTO</item>
+        <item>FORMAT_HH_MM_SS</item>
+        <item>FORMAT_HHh_MMm_SSs</item>
+        <item>FORMAT_D_HH</item>
+        <item>FORMAT_Dd_HHh</item>
+        <item>FORMAT_HH_MM</item>
+        <item>FORMAT_HHh_MMm</item>
+        <item>FORMAT_MM_SS</item>
+        <item>FORMAT_MMm_SSs</item>
+        <item>FORMAT_Dd_HHh_MMm_SSs</item>
+        <item>FORMAT_D_HH_MM_SS</item>
+    </string-array>
+</resources>
