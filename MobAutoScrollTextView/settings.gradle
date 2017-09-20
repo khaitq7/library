@@ -1,1 +1,1 @@
-include ':app', ':mobautoscrolltextviewlib'
+include ':sample', ':mobautoscrolltextviewlib'
