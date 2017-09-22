@@ -100,8 +100,8 @@ public class MobAutoScrollTextView extends TextSwitcher {
                         LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,
                         Gravity.CENTER);
                 myText.setLayoutParams(params);
-                myText.setTextSize(36);
-                myText.setTextColor(Color.BLACK);
+                myText.setTextSize(15);
+                myText.setTextColor(Color.WHITE);
                 return myText;
             }
         });
@@ -115,15 +115,12 @@ public class MobAutoScrollTextView extends TextSwitcher {
             public void onTick(long millisUntilFinished) {
                 if (onTextViewScrollListener != null)
                     onTextViewScrollListener.onTextViewScroll(listText.get(i), reverse);
-
                 setText(listText.get(i));
                 i++;
-//                if (i == listText.size()) i = 0;
             }
 
             public void onFinish() {
-//                if (repeat) startAutoScroll(listText, duration, repeat, reverse);
-//                else Log.d(TAG, "onFinish: " + "animation stop");
+                onTextViewScrollListener.onTextViewScrollFinished();
             }
         };
         countDownTimer.start();
@@ -133,7 +130,7 @@ public class MobAutoScrollTextView extends TextSwitcher {
         //reverse is up to top
         startAutoScroll(listText, duration, repeat, true);
     }
-
+// call this function for Mob Notification
     public void startAutoScroll(ArrayList<String> listText, long duration) {
         //reverse is up to top, repeat is true
         startAutoScroll(listText, duration, false, false);
@@ -143,9 +140,11 @@ public class MobAutoScrollTextView extends TextSwitcher {
     /*Listener*/
     interface OnTextViewScrollListener {
         void onTextViewScroll(String text, boolean reverse);
+        void onTextViewScrollFinished();
     }
 
     public void setOnTextViewScrollListener(OnTextViewScrollListener onTextViewScrollListener) {
         this.onTextViewScrollListener = onTextViewScrollListener;
+
     }
 }
