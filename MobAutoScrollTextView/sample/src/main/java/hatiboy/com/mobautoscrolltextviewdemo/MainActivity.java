@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
                     int duration = Integer.parseInt(((EditText) findViewById(R.id.duration)).getText().toString());
                     boolean repeat = ((Switch) findViewById(R.id.repeat)).isChecked();
                     boolean reverse = ((Switch) findViewById(R.id.reverse)).isChecked();
-                    textView.startAnimation(texts, duration, repeat, reverse);
+                    textView.startAutoScroll(texts, duration, repeat, reverse);
                 } catch (Exception e) {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();

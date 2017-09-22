@@ -16,7 +16,7 @@
         android:autoSizeMaxTextSize="30sp"
         android:autoSizeMinTextSize="15sp"
         android:background="#ee4242"
-        android:gravity="center"
+        android:gravity="center_vertical"
         android:text="@string/text"
         android:textColor="@color/colorPrimary"
         android:textSize="30sp"

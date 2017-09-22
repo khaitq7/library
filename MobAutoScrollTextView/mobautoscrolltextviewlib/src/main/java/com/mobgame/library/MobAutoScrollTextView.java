@@ -1,17 +1,17 @@
 package com.mobgame.library;
 
 import android.content.Context;
-import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.CountDownTimer;
-import android.support.annotation.AnimRes;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.TextSwitcher;
 import android.widget.TextView;
+
+import com.mobgame.mobautoscrolltextview.R;
 
 import java.util.ArrayList;
 
@@ -24,7 +24,8 @@ public class MobAutoScrollTextView extends TextSwitcher {
     private static final String TAG = MobAutoScrollTextView.class.getName();
 
 
-    /*@Declare Variable*/
+/*@Declare Variable*/
+
     private ArrayList<String> stringArrayList;
     private Long duration;
     private boolean repeat;
@@ -33,11 +34,10 @@ public class MobAutoScrollTextView extends TextSwitcher {
 
     OnTextViewScrollListener onTextViewScrollListener;
 
-
 /*End @Declare Variable*/
 
+/*@Declare Constructor*/
 
-    /*@Declare Constructor*/
     public MobAutoScrollTextView(Context context) {
         super(context);
     }
@@ -46,11 +46,11 @@ public class MobAutoScrollTextView extends TextSwitcher {
         super(context, attrs);
     }
 
-
 /*End @Declare Constructor*/
 
 
-    /*Getter And Setter*/
+/*Getter And Setter*/
+
     public boolean isRepeat() {
         return repeat;
     }
@@ -84,68 +84,18 @@ public class MobAutoScrollTextView extends TextSwitcher {
     public void setReverse(boolean reverse) {
         this.reverse = reverse;
     }
+
 /*End Getter And Setter*/
 
     /*start Animation*/
-    public void startAnimation(final ArrayList<String> listText, final long duration, final boolean repeat, final boolean reverse) {
-        //handler TextView scroll
-        long timeCount = listText.size() * duration;
-        CountDownTimer countDownTimer = new CountDownTimer(timeCount, duration) {
-            public void onTick(long millisUntilFinished) {
-                if (onTextViewScrollListener != null)
-                    onTextViewScrollListener.onTextViewScroll(listText.get(i), reverse);
-                setText(listText.get(i));
-                i++;
-                if (i == listText.size()) i = 0;
-            }
+    public void startAutoScroll(final ArrayList<String> listText, final long duration, final boolean repeat, final boolean reverse) {
+        //settings
+        setFactory(new ViewFactory() {
 
-            public void onFinish() {
-                if (repeat) startAnimation(listText, duration, repeat, reverse);
-                else Log.d(TAG, "onFinish: " + "animation stop");
-            }
-        };
-        countDownTimer.start();
-    }
-
-    public void startAnimation(ArrayList<String> listText, long duration, boolean repeat) {
-        //reverse is up to top
-        startAnimation(listText, duration, repeat, true);
-    }
-
-    public void startAnimation(ArrayList<String> listText, long duration) {
-        //reverse is up to top, repeat is true
-        startAnimation(listText, duration, true, true);
-    }
-
-
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-    }
-
-    @Override
-    public void setInAnimation(Context context, @AnimRes int resourceID) {
-        super.setInAnimation(context, resourceID);
-    }
-
-    @Override
-    public void setOutAnimation(Context context, @AnimRes int resourceID) {
-        super.setOutAnimation(context, resourceID);
-    }
-
-
-    @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-    }
-
-    @Override
-    public void setFactory(ViewFactory factory) {
-        super.setFactory(new ViewFactory() {
             public View makeView() {
+//                removeAllViews();
                 final TextView myText = new TextView(getContext());
                 myText.setGravity(Gravity.CENTER);
-
                 FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                         LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT,
                         Gravity.CENTER);
@@ -155,7 +105,40 @@ public class MobAutoScrollTextView extends TextSwitcher {
                 return myText;
             }
         });
+        setInAnimation(AnimationUtils.loadAnimation(getContext(),
+                R.anim.push_up_in));
+        setOutAnimation(getContext(), R.anim.push_up_out);
+
+        //handler TextView scroll
+        long timeCount = listText.size() * duration;
+        CountDownTimer countDownTimer = new CountDownTimer(timeCount, duration) {
+            public void onTick(long millisUntilFinished) {
+                if (onTextViewScrollListener != null)
+                    onTextViewScrollListener.onTextViewScroll(listText.get(i), reverse);
+
+                setText(listText.get(i));
+                i++;
+//                if (i == listText.size()) i = 0;
+            }
+
+            public void onFinish() {
+//                if (repeat) startAutoScroll(listText, duration, repeat, reverse);
+//                else Log.d(TAG, "onFinish: " + "animation stop");
+            }
+        };
+        countDownTimer.start();
     }
+
+    public void startAutoScroll(ArrayList<String> listText, long duration, boolean repeat) {
+        //reverse is up to top
+        startAutoScroll(listText, duration, repeat, true);
+    }
+
+    public void startAutoScroll(ArrayList<String> listText, long duration) {
+        //reverse is up to top, repeat is true
+        startAutoScroll(listText, duration, false, false);
+    }
+
 
     /*Listener*/
     interface OnTextViewScrollListener {
