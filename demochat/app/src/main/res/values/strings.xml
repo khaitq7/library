@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Chat</string>
+    <string name="login_acc">Tên đăng nhập</string>
+    <string name="login_pass">Mật khẩu</string>
+    <string name="login">Đăng Nhập</string>
+    <string name="signup">Đăng Ký</string>
+    <string name="email">Email</string>
+    <string name="re_pass">Nhập lại mật khẩu</string>
+    <string name="error_account">enter a valid account</string>
+    <string name="error_pass">between 4 and 10 alphanumeric characters</string>
+    <string name="invalid_email">enter a valid email address</string>
+    <string name="invaild_phone">enter a valid phone</string>
+    <string name="error_verifi_pass">mật khẩu không trùng</string>
+</resources>

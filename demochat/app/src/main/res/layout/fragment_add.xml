@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_edt"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/margin_login"
+            android:layout_marginRight="@dimen/margin_login"
+            android:layout_marginTop="@dimen/margin_login"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_bot"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/margin5dp"
+                    android:padding="1dp"
+                    android:text="@string/login_acc"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorTextLogin"
+                    android:textSize="@dimen/text15dp" />
+
+                <EditText
+                    android:id="@+id/edt_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:nextFocusDown="@+id/edt_roleid"
+                    android:paddingBottom="@dimen/margin10dp"
+                    android:paddingTop="@dimen/margin10dp"
+                    android:textColor="@color/colorTextLogin"
+                    android:textSize="@dimen/text12dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_bot"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/margin5dp"
+                    android:text="RoleID"
+                    android:padding="1dp"
+                    android:inputType="text"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorTextLogin"
+                    android:textSize="@dimen/text15dp" />
+
+                <EditText
+                    android:id="@+id/edt_roleid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:nextFocusDown="@+id/edt_areaid"
+                    android:textColor="@color/colorTextLogin"
+                    android:textSize="@dimen/text12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_bot"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/margin5dp"
+                    android:padding="1dp"
+                    android:text="AREAID"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorTextLogin"
+                    android:textSize="@dimen/text15dp" />
+
+                <EditText
+                    android:id="@+id/edt_areaid"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionNext"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:nextFocusDown="@+id/edt_avatar"
+                    android:textColor="@color/colorTextLogin"
+                    android:textSize="@dimen/text12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin15dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/margin5dp"
+                    android:text="Avatar"
+                    android:textAllCaps="true"
+                    android:padding="1dp"
+                    android:textColor="@color/colorTextLogin"
+                    android:textSize="@dimen/text15dp" />
+
+                <EditText
+                    android:id="@+id/edt_avatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:textColor="@color/colorTextLogin"
+                    android:textSize="@dimen/text12dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/addListFr"
+        android:layout_below="@+id/ll_edt"
+        android:text="add list friends"/>
+    <TextView
+        android:id="@+id/add"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_login"
+        android:background="@color/colorBgButtonLogin"
+        android:gravity="center"
+        android:text="Thêm"
+        android:textAllCaps="true"
+        android:textColor="#FFF"
+        android:layout_alignParentBottom="true"
+        android:textSize="@dimen/text18dp" />
+
+</RelativeLayout>

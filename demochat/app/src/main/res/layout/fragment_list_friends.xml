@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ListView
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#b5b5b5"
+        android:dividerHeight="1dp"
+        android:id="@+id/lv_friends">
+
+    </ListView>
+</android.support.constraint.ConstraintLayout>
