@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nabugs.smscatcher.MainActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn_start_jobdispatcher"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Start Firebase JobDispatcher"/>
+    <Button
+        android:id="@+id/btn_cancel_jobdispatcher"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Cancel Firebase JobDispatcher"/>
+    <Button
+        android:id="@+id/btn_send_sms"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Send Test SMS (PAID)"/>
+    <Button
+        android:id="@+id/btn_add_mes"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Add Message"/>
+    <Button
+        android:id="@+id/btn_del_all_mes"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Delete All Message"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/recyclerview_item" />
+
+</LinearLayout>
