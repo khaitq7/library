@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/video_player"
+        android:layout_width="match_parent"
+        android:layout_height="400dp" />
+
+    <Button
+        android:id="@+id/quality_lo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/video_player"
+        android:text="low" />
+
+    <Button
+        android:id="@+id/quality_mi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/video_player"
+        android:layout_toEndOf="@id/quality_lo"
+        android:layout_toRightOf="@id/quality_lo"
+        android:text="medium" />
+
+    <Button
+        android:id="@+id/quality_hi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/video_player"
+        android:layout_toEndOf="@id/quality_mi"
+        android:layout_toRightOf="@id/quality_mi"
+        android:text="high" />
+
+    <Button
+        android:id="@+id/setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/video_player"
+        android:layout_toEndOf="@id/quality_hi"
+        android:layout_toRightOf="@id/quality_hi"
+        android:text="setting" />
+</RelativeLayout>
