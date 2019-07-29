@@ -10,11 +10,14 @@ import android.view.View;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.source.ExtractorMediaSource;
+import com.google.android.exoplayer2.source.MediaSource;
 import com.google.android.exoplayer2.source.hls.HlsMediaSource;
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.MappingTrackSelector;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.ui.TrackSelectionView;
+import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
@@ -42,9 +45,18 @@ public class MainActivity extends AppCompatActivity {
         DefaultDataSourceFactory fac = new DefaultDataSourceFactory(this,
                 Util.getUserAgent(this, getString(R.string.app_name)));
 
-        HlsMediaSource videoSource = new HlsMediaSource.Factory(fac).createMediaSource(
-                Uri.parse("https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8")
-        );
+//        HlsMediaSource videoSource = new HlsMediaSource.Factory(fac).createMediaSource(
+//                Uri.parse("https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8")
+////                Uri.parse("https://57880af974.vws.vegacdn.vn/digi_dai_chien_1548317714/360.mp4")
+//        );
+
+        DataSource.Factory dataSourceFactory = new DefaultDataSourceFactory(this,
+                Util.getUserAgent(this, "yourApplicationName"));
+        MediaSource videoSource = new ExtractorMediaSource.Factory(dataSourceFactory)
+                .createMediaSource(Uri.parse("https://57880af974.vws.vegacdn.vn/digi_dai_chien_1548317714.mp4"));
+//                .createMediaSource(Uri.parse("https://57880af974.vws.vegacdn.vn/digi_dai_chien_1548317714.mp4"));
+//                .createMediaSource(Uri.parse("https://57880af974.vws.vegacdn.vn/digi_dai_chien_1548317714/240.mp4ýe"));
+
 
         player.prepare(videoSource);
 
